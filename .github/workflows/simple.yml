@@ -13,3 +13,8 @@ jobs:
           node -v
           npm -v
           echo "hello world"
+      - name: Python command
+        run: |
+          import platform
+          print(platform.processor())
+        shell: python
