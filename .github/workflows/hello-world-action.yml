@@ -11,6 +11,6 @@ jobs:
         uses: actions/hello-world-javascript-action@v1
         with:
           who-to-greet: Prakash
-      - name: Log greeting time
+      - name: Log the greeting time
         run: echo "${{ steps.greet.outputs.time }}"
 
