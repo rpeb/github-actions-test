@@ -6,9 +6,9 @@ jobs:
   checkout-a-repo:
     runs-on: ubuntu-latest
     steps:
-      - name: current dir before checkout
+      - name: ls before checkout
         run: |
-          pwd
+          ls -a
           echo "${{ github.repository }}"
           echo "${{ github.token }}"
       - name: clone a repo
@@ -16,5 +16,5 @@ jobs:
         with:
           repository: ${{ github.repository }}
           token: ${{ github.token }}
-      - name: current dir after checkout
-        run: pwd
+      - name: ls after checkout
+        run: ls -a
