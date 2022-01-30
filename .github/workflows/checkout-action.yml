@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: ls before checkout
         run: |
-          ls -a
+          ls -a -R
           echo "${{ github.repository }}"
           echo "${{ github.token }}"
       - name: clone a repo
@@ -17,4 +17,4 @@ jobs:
           repository: ${{ github.repository }}
           token: ${{ github.token }}
       - name: ls after checkout
-        run: ls -a
+        run: ls -a -R
