@@ -1,23 +1,20 @@
-name: Actions
+name: matrix
 
 on:
   push:
-  pull_request:
-    types:
-      - opened
-      - closed
-      - reopened
-      - assigned
 
-jobs:
-  run-github-actions:
+jobs: 
+  node-version:
     runs-on: ubuntu-latest
     steps:
-      - name: simple JS Action
-        id: greet
-        uses: actions/hello-world-javascript-action@v1
-        with:
-          who-to-greet: Prakash
-      - name: Log greeting time
-        run: echo "${{ steps.greet.outputs.time }}"
-
+    - name: get node version before node-setup action
+      run: |
+        node -v
+        npm -v
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 6
+    - name: get node version after node-setup action
+      run: |
+        node -v
+        npm -v
