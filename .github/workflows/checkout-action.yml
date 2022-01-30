@@ -1,0 +1,20 @@
+name: github checkout action
+
+on: [push]
+
+jobs:
+  checkout-a-repo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: current dir before checkout
+        run: |
+          pwd
+          echo "${{ github.repository }}"
+          echo "${{ github.token }}"
+      - name: clone a repo
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ github.repository }}
+          token: ${{ github.token }}
+      - name: current dir after checkout
+        run: pwd
